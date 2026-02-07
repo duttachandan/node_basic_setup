@@ -30,7 +30,7 @@ app.use(BaseRoutes);
 
 // Protected Routes
 const LoggedRoutes = require("./app/routes/loginRoutes");
-app.use('/user', LoggedRoutes);
+app.use('/auth', LoggedRoutes);
 
 
 // Handeling all the error
