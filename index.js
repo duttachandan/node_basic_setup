@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 // Json Web Token
@@ -25,9 +26,12 @@ app.use(express.json());
 
 // Home Routes
 const BaseRoutes = require('./app/routes/HomeRoutes');
-const LoggedRoutes = require("./app/routes/loginRoutes");
 app.use(BaseRoutes);
+
+// Protected Routes
+const LoggedRoutes = require("./app/routes/loginRoutes");
 app.use('/user', LoggedRoutes);
+
 
 // Handeling all the error
 app.use((err, req, res, next) => {
