@@ -8,17 +8,19 @@ class HomeController {
   }
 
   async login(req, res) {
-    res.json({
-      route: "/login",
-      authentication: false,
-    });
+    console.log("login")
+    res.render('login', {
+      title: "Login Page",
+      description: "user login page"
+    })
   }
 
   async signin(req, res) {
-    res.json({
-      route: "/signin",
-      authentication: false,
-    });
+    console.log("Signin")
+    res.render('signin', {
+      title: "Sign In Page",
+      description: "user login page"
+    })
   }
 }
 

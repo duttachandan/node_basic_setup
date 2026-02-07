@@ -24,8 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Home Routes
-const BaseRoutes = require("./app/routes/loginRoutes");
+const BaseRoutes = require('./app/routes/HomeRoutes');
+const LoggedRoutes = require("./app/routes/loginRoutes");
 app.use(BaseRoutes);
+app.use('/user', LoggedRoutes);
 
 // Handeling all the error
 app.use((err, req, res, next) => {
