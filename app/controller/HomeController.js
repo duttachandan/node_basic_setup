@@ -8,19 +8,20 @@ class HomeController {
   }
 
   async login(req, res) {
-    console.log("login")
-    res.render('login', {
+    const getToken = req.cookies?.sessionId;
+    console.log(getToken + "is your Token");
+    if (getToken) return res.redirect("/");
+    res.render("login", {
       title: "Login Page",
-      description: "user login page"
-    })
+      description: "user login page",
+    });
   }
 
   async signin(req, res) {
-    console.log("Signin")
-    res.render('signin', {
+    res.render("signin", {
       title: "Sign In Page",
-      description: "user login page"
-    })
+      description: "user login page",
+    });
   }
 }
 

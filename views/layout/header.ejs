@@ -5,8 +5,7 @@
     >
       <a
         href="/"
-        class="d-flex align-items-center fw-1 fs-3 
-        mb-2 mb-lg-0 me-2 text-white text-decoration-none"
+        class="d-flex align-items-center fw-1 fs-3 mb-2 mb-lg-0 me-2 text-white text-decoration-none"
       >
         Authentication
       </a>
@@ -28,9 +27,22 @@
         />
       </form> -->
       <div class="text-end">
-        <a href="/login" class="btn btn-outline-light me-2">Login</a>
-        <a href="/signin" class="btn btn-warning">Sign-up</a>
+        <a href="/login" id="login" class="btn btn-outline-light me-2">Login</a>
+        <a href="/signin" id="signup" class="btn btn-warning">Sign-up</a>
       </div>
     </div>
   </div>
 </header>
+
+<script>
+  const login = document.querySelector("#login");
+  const SignUp = document.querySelector("#signup");
+  // const username = document.querySelector("#username");
+  // username.style.display = "none";
+  const cookie = document.cookie.split("=")[1];
+  if (cookie) {
+    login.style.display = "none";
+    SignUp.style.display = "none";
+    // username.style.display = "block";
+  }
+</script>

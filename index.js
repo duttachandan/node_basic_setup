@@ -1,11 +1,12 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
+
+// Cookie-parser
+const CookieParser = require("cookie-parser");
+
 // Json Web Token
 var jwt = require("jsonwebtoken");
-
-//Private key intialization
-var privateKey = "sh2&2902";
 
 // App initiation
 const app = express();
@@ -18,6 +19,7 @@ DBConnection();
 app.set("view engine", "ejs");
 app.set(path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(CookieParser());
 
 // Port
 const port = 3000;
@@ -25,13 +27,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Home Routes
-const BaseRoutes = require('./app/routes/HomeRoutes');
+const BaseRoutes = require("./app/routes/HomeRoutes");
 app.use(BaseRoutes);
 
 // Protected Routes
 const LoggedRoutes = require("./app/routes/loginRoutes");
-app.use('/auth', LoggedRoutes);
-
+app.use("/auth", LoggedRoutes);
 
 // Handeling all the error
 app.use((err, req, res, next) => {
